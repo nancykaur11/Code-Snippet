@@ -20,9 +20,9 @@ Promise.resolve().then(() => {
 console.log('End');
 ```
 
-  Start
-  End
-  Promise
+  Start<br>
+  End<br>
+  Promise<br>
   Timeout
 ```javascript
 async function foo() {
@@ -31,7 +31,7 @@ async function foo() {
   console.log('Inside foo 2');
 }
 
-console.log('Start');
+console.log('Start<br>');
 
 setTimeout(() => {
   console.log('Timeout');
@@ -39,12 +39,12 @@ setTimeout(() => {
 
 foo();
 
-console.log('End');
+console.log('End<br>');
 ```
 
-Start<br>
+Start<br><br>
 Inside foo 1<br>
-End<br>
+End<br><br>
 Inside foo 2<br>
 Timeout
 
@@ -66,13 +66,13 @@ setTimeout(() => {
   console.log('Timeout 2');
 }, 0);
 ```
-Promise 1
-Timeout 1
-Promise inside Timeout
+Promise 1<br>
+Timeout 1<br>
+Promise inside Timeout<br>
 Timeout 2
 ##  5. Tricky setTimeout with Delay
 ```javascript
-console.log('Start');
+console.log('Start<br>');
 
 setTimeout(() => {
   console.log('Timeout after 0ms');
@@ -82,13 +82,13 @@ setTimeout(() => {
   console.log('Timeout after 100ms');
 }, 100);
 
-console.log('End');
+console.log('End<br>');
 ```
 
 
-Start
-End
-Timeout after 0ms
+Start<br>
+End<br>
+Timeout after 0ms<br>
 Timeout after 100ms
 ##  6. async/await + setTimeout + Promise
 ```javascript
@@ -102,7 +102,7 @@ async function bar() {
   console.log('bar');
 }
 
-console.log('start');
+console.log('Start<br>');
 
 setTimeout(() => {
   console.log('timeout');
@@ -114,19 +114,18 @@ Promise.resolve().then(() => {
   console.log('promise');
 });
 
-console.log('end');
+console.log('End<br>');
 ```
-start
-foo 1
-bar
-end
-promise
-foo 2
+Start<br>
+foo 1<br>
+bar<br>
+End<br>
+promise<br>
+foo 2<br>
 timeout
-##  6. async/await + setTimeout + Promise
 ## 7. Synchronous Blocking & Microtasks
 ```javascript
-console.log('Start');
+console.log('Start<br>');
 
 Promise.resolve().then(() => {
   console.log('Promise 1');
@@ -134,14 +133,14 @@ Promise.resolve().then(() => {
 
 for (let i = 0; i < 1e9; i++) {}  // Blocking loop
 
-console.log('End');
+console.log('End<br>');
 ```
-Start
-End
+Start<br>
+End<br>
 Promise 1
 ## 8. Chained Promises
 ```javascript
-console.log('Start');
+console.log('Start<br>');
 
 Promise.resolve()
   .then(() => {
@@ -152,11 +151,11 @@ Promise.resolve()
     console.log('Promise 2');
   });
 
-console.log('End');
+console.log('End<br>');
 ```
-Start
-End
-Promise 1
+Start<br>
+End<br>
+Promise 1<br>
 Promise 2
 ## #9. Interleaved Macrotasks & Microtasks
 ```javascript
@@ -187,14 +186,14 @@ setTimeout(() => console.log('D'), 0);
 console.log('E');
 ```
 
-A
-E
-B
-C
+A<br>
+E<br>
+B<br>
+C<br>
 D
 ## 11. Understanding setTimeout Delays
 ```javascript
-console.log('Start');
+console.log('Start<br>');
 
 setTimeout(() => {
   console.log('Timeout with delay 0');
@@ -204,17 +203,17 @@ setTimeout(() => {
   console.log('Timeout with delay 100');
 }, 100);
 
-console.log('End');
+console.log('End<br>');
 ```
 
 
-Start
-End
-Timeout with delay 0
+Start<br>
+End<br>
+Timeout with delay 0<br>
 Timeout with delay 100
 ## 12. Promise Chaining with Delays
 ```javascript
-console.log('Start');
+console.log('Start<br>');
 
 Promise.resolve()
   .then(() => {
@@ -225,11 +224,11 @@ Promise.resolve()
     console.log('Promise 2');
   });
 
-console.log('End');
+console.log('End<br>');
 ```
-Start
-Promise 1
-End
+Start<br>
+Promise 1<br>
+End<br>
 Promise 2
 ## #13. setInterval and clearInterval with Multiple Intervals
 ```javascript
@@ -242,10 +241,10 @@ const intervalId = setInterval(() => {
   }
 }, 500);
 ```
-0
-1
-2
-3
+0<br>
+1<br>
+2<br>
+3<br>
 4
 ## 14. Recursive setTimeout with Delay
 ```javascript
@@ -262,14 +261,14 @@ recursiveTimeout(0);
 ```
 
 
-0
-1
-2
-3
+0<br>
+1<br>
+2<br>
+3****
 4
 ## 15. Handling Multiple setTimeout Calls
 ```javascript
-console.log('Start');
+console.log('Start<br>');
 
 setTimeout(() => {
   console.log('Timeout 1');
@@ -279,17 +278,17 @@ setTimeout(() => {
   console.log('Timeout 2');
 }, 0);
 
-console.log('End');
+console.log('End<br>');
 ```
 
 
-Start
-End
-Timeout 1
+Start<br>
+End<br>
+Timeout 1<br>
 Timeout 2
 ## 16. Promise Resolution Order
 ```javascript
-console.log('Start');
+console.log('Start<br>');
 
 Promise.resolve('First').then((value) => {
   console.log(value);
@@ -298,13 +297,13 @@ Promise.resolve('First').then((value) => {
   console.log(value);
 });
 
-console.log('End');
+console.log('End<br>');
 ```
 
 
-Start
-End
-First
+Start<br>
+End<br>
+First<br>
 Second
 ## 17. The Impact of Microtasks on Event Loop
 ```javascript
@@ -314,11 +313,11 @@ setTimeout(() => {
 }, 0);
 
 Promise.resolve().then(() => console.log('Promise 1'));
-console.log('End');
+console.log('End<br>');
 ```
-End
-Promise 1
-Timeout 1
+End<br>
+Promise 1<br>
+Timeout 1<br>
 Promise inside Timeout
 ## 18. Handling async/await with Timeouts
 ```javascript
@@ -332,13 +331,13 @@ console.log('Start');
 
 asyncFunction();
 
-console.log('End');
+console.log('End<br>');
 ```
 
 
-Start
-Start async
-End
+Start<br>
+Start async<br>
+End<br>
 End async
 ## 19. Promise.all and Parallel Execution
 ```javascript
@@ -353,10 +352,10 @@ console.log('End');
 ```
 
 
-Start
-End
-Task 2
-Task 1
+Start<br>
+End<br>
+Task 2<br>
+Task 1<br>
 All tasks completed
 ## 20. Promise Chaining with setTimeout and setInterval
 ```javascript
@@ -377,11 +376,11 @@ console.log('End');
 ```
 
 
-Start
-End
-Promise Resolved
-Interval running
-Interval running
+Start<br>
+End<br>
+Promise Resolved<br>
+Interval running<br>
+Interval running<br>
 Interval running
 ...
 ## 21. Microtasks and Macrotasks Ordering
@@ -401,12 +400,12 @@ setTimeout(() => {
 Promise.resolve().then(() => console.log('Promise 1'));
 console.log('End');
 ```
-Start
-End
-Promise 1
-Timeout 1
-Promise inside Timeout
-Timeout 2
+Start<br>
+End<br>
+Promise 1<br>
+Timeout 1<br>
+Promise inside Timeout<br>
+Timeout <br>
 Promise inside Timeout 2
 ## 22. Event Loop with queueMicrotask
 ```javascript
@@ -419,9 +418,9 @@ console.log('End');
 ```
 
 
-Start
-End
-Microtask 1
+Start<br>
+End<br>
+Microtask 1<br>
 Microtask 2
 23. setTimeout with Recursive Calls
 ```javascript
@@ -439,10 +438,10 @@ recursiveTimeout();
 ```
 
 
-0
-1
-2
-3
+0<br>
+1<br>
+2<br>
+3<br>
 4
 ## 24. async Function with Multiple awaits
 ```javascript
@@ -457,7 +456,7 @@ async function asyncFunction() {
 asyncFunction();
 ```
 
-Start
+Start<br>
 After 1 second
 
 ## 25. Understanding the Event Loop with setImmediate
@@ -472,10 +471,10 @@ console.log('End');
 ```
 
 
-Start
-End
-Promise 1
-setImmediate 1
+Start<br>
+End<br>
+Promise 1<br>
+setImmediate 1<br>
 setTimeout 1
 
 ## 26. Using setTimeout and Promises Together
@@ -491,10 +490,10 @@ Promise.resolve().then(() => console.log('Promise 1'));
 console.log('End');
 ```
 
-Start
-End
-Promise 1
-setTimeout 1
+Start<br>
+End<br>
+Promise 1<br>
+setTimeout 1<br>
 Promise inside Timeout
 
 ## 27. Promise.race Example
@@ -525,9 +524,9 @@ for (let i = 0; i < 3; i++) {
 ```
 
 
-3
-3
-3
+3<br>
+3<br>
+3<br>
 Why? The value of i is updated before each setTimeout is executed, and by the time the setTimeout is called, the loop has finished running. To fix this, you can use let (block-scoped) or wrap the setTimeout in an immediately invoked function expression (IIFE).
 
 ## 29. The Event Loop with setInterval and clearInterval
@@ -543,9 +542,9 @@ const interval = setInterval(() => {
 ```
 
 
-0
-1
-2
+0<br>
+1<br>
+2<br>
 Why? setInterval runs the code every 1000ms. It stops when clearInterval is called after three iterations.
 
 ## 30. setTimeout with Different Delays
@@ -568,11 +567,11 @@ console.log('End');
 ```
 
 
-Start
-End
-Timeout 1
-Timeout 3
-Timeout 2
+Start<br>
+End<br>
+Timeout 1<br>
+Timeout 3<br>
+Timeout 2<br>
 
 
 
