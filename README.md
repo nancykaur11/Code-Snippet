@@ -154,7 +154,7 @@ Start<br>
 End<br>
 Promise 1<br>
 Promise 2
-## #9. Interleaved Macrotasks & Microtasks
+## 9. Interleaved Macrotasks & Microtasks
 ```javascript
 setTimeout(() => {
   console.log('setTimeout 1');
@@ -170,7 +170,7 @@ setTimeout 1
 inner Promise 1
 setTimeout 2
 inner Promise 2
-## #10. Trick with queueMicrotask
+## 10. Trick with queueMicrotask
 ```javascript
 console.log('A');
 
