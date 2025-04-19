@@ -227,7 +227,7 @@ Start<br>
 Promise 1<br>
 End<br>
 Promise 2
-## #13. setInterval and clearInterval with Multiple Intervals
+## 13. setInterval and clearInterval with Multiple Intervals
 ```javascript
 let count = 0;
 const intervalId = setInterval(() => {
@@ -261,7 +261,7 @@ recursiveTimeout(0);
 0<br>
 1<br>
 2<br>
-3****
+3<br>
 4
 ## 15. Handling Multiple setTimeout Calls
 ```javascript
@@ -513,7 +513,7 @@ Why? Promise.race resolves as soon as the first promise in the array resolves. I
 
 ## 28. Asynchronous Code in for Loops
 ```javascript
-for (let i = 0; i < 3; i++) {
+for (var i = 0; i < 3; i++) {
   setTimeout(() => {
     console.log(i);
   }, 1000);
